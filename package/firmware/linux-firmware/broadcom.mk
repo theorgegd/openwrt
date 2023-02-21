@@ -147,18 +147,30 @@ define Package/brcmfmac-nvram-43455-sdio/install
 		brcmfmac43455-sdio.AW-CM256SM.txt \
 		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.pine64,quartz64-b.txt
 endef
-$(eval $(call BuildPackage,brcmfmac-nvram-43455-sdio))
+$(eval $(call BuildPackage,brcmfmac-nvram-43435s-sdio))
 
-Package/brcmfmac-firmware-usb = $(call Package/firmware-default,Broadcom BCM43xx fullmac USB firmware)
-define Package/brcmfmac-firmware-usb/install
+Package/brcmfmac-nvram-43436s_sdio = $(call Package/firmware-default,Broadcom BCM43xx wifi)
+define Package/brcmfmac-nvram-43436s_sdio/install
 	$(INSTALL_DIR) $(1)/lib/firmware/brcm
 	$(INSTALL_DATA) \
-		$(PKG_BUILD_DIR)/brcm/brcmfmac43236b.bin \
+		$(PKG_BUILD_DIR)/brcm/brcmfmac43436s.bin \
 		$(1)/lib/firmware/brcm/
 	$(INSTALL_DATA) \
-		$(PKG_BUILD_DIR)/brcm/brcmfmac43143.bin \
+		$(PKG_BUILD_DIR)/brcm/brcmfmac43436s.bin \
 		$(1)/lib/firmware/brcm/
 endef
+
+Package/brcmfmac-nvram-43436_sdio = $(call Package/firmware-default,Broadcom BCM43xx wifi)
+define Package/brcmfmac-nvram-43436_sdio/install
+	$(INSTALL_DIR) $(1)/lib/firmware/brcm
+	$(INSTALL_DATA) \
+		$(PKG_BUILD_DIR)/brcm/brcmfmac43436.bin \
+		$(1)/lib/firmware/brcm/
+	$(INSTALL_DATA) \
+		$(PKG_BUILD_DIR)/brcm/brcmfmac43436.bin \
+		$(1)/lib/firmware/brcm/
+endef
+
 $(eval $(call BuildPackage,brcmfmac-firmware-usb))
 
 Package/brcmsmac-firmware = $(call Package/firmware-default,Broadcom BCM43xx softmac PCIe firmware)
