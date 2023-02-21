@@ -139,6 +139,8 @@ define Device/rpi-3
   DEVICE_PACKAGES := \
 	cypress-firmware-43430-sdio \
 	brcmfmac-nvram-43430-sdio \
+	brcmfmac43436s-sdio \
+	brcmfmac43436-sdio \
 	cypress-firmware-43455-sdio \
 	brcmfmac-nvram-43455-sdio \
 	kmod-brcmfmac wpad-basic-mbedtls
